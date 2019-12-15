@@ -4,11 +4,11 @@ body {
     position: relative;
 }
 
-/* #table {
+#table {
     padding: 150px;
-} */
+}
 
-/* th, td {
+th, td {
     padding: 7px 10px 10px 10px;
 }
 
@@ -22,7 +22,7 @@ th {
     background-color: #cfa8e6;
     color: #6c278b;
     font-family: cursive;
-} */
+}
 
 tr {
     background-color: #cfa8e6;
@@ -79,11 +79,10 @@ a:visited {
     text-decoration: none;
 }
 
-
 a:hover {
     background-color: #e29cdc;
-  }
-  a:link {
+}
+
+a:link {
     background-color: #cfa8e6;
-  }
-  
+}

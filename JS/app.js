@@ -14,9 +14,6 @@ function ShopBranch(location, min, max, avg) {
     this.randomNumberOfCustomersPerHour();
 }
 
-
-
-
 ShopBranch.prototype.randomNumberOfCustomersPerHour = function () {
     for (var i = 0; i < hours.length; i++) {
         var range = this.max - this.min;
@@ -25,10 +22,6 @@ ShopBranch.prototype.randomNumberOfCustomersPerHour = function () {
         this.dailySales += randomNumber;
     }
 }
-
-
-
-
 
 ShopBranch.prototype.row = function (table) {
 
@@ -43,9 +36,6 @@ ShopBranch.prototype.row = function (table) {
     $(`.${this.location}`).append(`<td>${this.dailySales}</td>`)
 }
 
-
-
-
 function renderHeaderRow() {
 
     $('table').append(`<tr class = "head"><th>***</th></tr>`)
@@ -56,8 +46,6 @@ function renderHeaderRow() {
     }
     $('.head').append(`<th>Daily Location Total</th>`)
 }
-
-renderHeaderRow()
 
 ShopBranch.prototype.render = function (table) {
 
@@ -71,20 +59,13 @@ ShopBranch.prototype.render = function (table) {
     $(`.${this.location}`).append(`<td>${this.dailySales}</td>`)
 }
 
-
-
-
-
 function renderFooterRow(table) {
     $(`table`).append(`<tr class=footer><td>Total </td></tr>`)
     var totalTotal = 0;
 
     for (var k = 0; k < hours.length; k++) {
-        // var td = document.createElement('td');
-        // tr.appendChild(td);
 
         var sum = 0;
-
         for (var j = 0; j < shops.length; j++) {
             var shoptotal = shops[j];
             sum += shoptotal.hourlySales[k];
@@ -97,20 +78,14 @@ function renderFooterRow(table) {
 
 };
 
-
-
-
-
 var shops = []
-
 shops.push(new ShopBranch('Seattle', 23, 65, 6.5));
 shops.push(new ShopBranch('Tokyo', 3, 24, 1.2));
 shops.push(new ShopBranch('Dubai', 11, 38, 3.7));
 shops.push(new ShopBranch('Paris', 20, 38, 2.3));
 shops.push(new ShopBranch('Lima', 2, 16, 4.6));
 
-
-
+renderHeaderRow();
 
 for (var i = 0; i < shops.length; i++) {
     var shop = shops[i];
@@ -119,8 +94,9 @@ for (var i = 0; i < shops.length; i++) {
 
 renderFooterRow();
 
-let seen = {}
 ////////////////////////////////
+
+let seen = {}
 $('#add').submit(function (event) {
     event.preventDefault();
 
@@ -132,15 +108,13 @@ $('#add').submit(function (event) {
     let newShop = new ShopBranch(location, min, max, avg);
     shops.push(newShop);
 
-
     if (!seen[location]) {
         seen[location] = true
         $(`.footer`).remove();
         newShop.row();
         renderFooterRow();
-    } else{
+    } else {
         alert('Try a city does not exist')
     }
-
-
 });
+
