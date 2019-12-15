@@ -1,0 +1,89 @@
+body {
+    background-image: url(https://thejigsawpuzzles.com/img-puzzle-6746960-1024/Fish-cookies);
+    background-size: 100%;
+    position: relative;
+}
+
+/* #table {
+    padding: 150px;
+} */
+
+/* th, td {
+    padding: 7px 10px 10px 10px;
+}
+
+th {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid #8f3ab6;
+    border-top: 1px solid #999;
+    text-align: left;
+    background-color: #cfa8e6;
+    color: #6c278b;
+    font-family: cursive;
+} */
+
+tr {
+    background-color: #cfa8e6;
+    color: #6c278b;
+    font-family: cursive;
+}
+
+tr:hover {
+    background-color: #e29cdc;
+}
+
+fieldset {
+    background-color: #cfa8e6;
+    color: #6c278b;
+    text-shadow: 2px 2px hsl(318, 100%, 50%);
+    /* font-size: larger; */
+    font-family: cursive;
+}
+
+label {
+    color: #6c278b;
+    text-shadow: 1px 1px hsl(318, 100%, 50%);
+    font-family: cursive;
+}
+
+button {
+    background-color: #6c278b;
+    color: #cfa8e6;
+    font-size: large;
+    font-family: cursive;
+    text-shadow: 2px 2px hsl(318, 100%, 50%);
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+    background-color: #cfa8e6;
+    color: #6c278b;
+    text-shadow: 2px 2px hsl(318, 100%, 50%);
+}
+
+h2 {
+    text-align: center;
+    font-family: cursive;
+    font-size: larger;
+}
+
+a:link {
+    text-decoration: none;
+    text-shadow: 2px 2px hsl(318, 100%, 50%);
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+
+a:hover {
+    background-color: #e29cdc;
+  }
+  a:link {
+    background-color: #cfa8e6;
+  }
+  

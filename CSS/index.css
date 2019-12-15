@@ -1,0 +1,93 @@
+body {
+    background-image: url(https://i2.wp.com/www.thewigglywomb.com/wp-content/uploads/2019/04/background-2633962_1920.jpg?ssl=1);
+}
+
+h1 {
+    text-align: center;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: 'Abril Fatface', cursive;
+    color: #6c278b;
+    text-shadow: 2px 2px hsl(318, 100%, 50%);
+}
+
+ul {
+    text-align: center;
+    /* background-color: rgb(255, 255, 255); */
+    padding: 20px;
+    word-spacing: 90px;
+    font-family: 'Abril Fatface', cursive;
+}
+
+ul li {
+    display: inline;
+}
+
+p {
+    /* font-family: 'Abril Fatface', cursive; */
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: rgb(221, 162, 208);
+    font-family: 'Abril Fatface', cursive;
+    color: hsl(318, 100%, 50%);
+    text-shadow: 1px 1px #6c278b;
+
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.sa {
+    text-align: center;
+    padding: 20px;
+}
+
+ol {
+    padding: 0px 0px 30px 50px;
+    font-style: italic;
+    font-size: xx-large;
+    font-style: oblique;
+    font-style: bold;
+    font-family: 'Abril Fatface', cursive;
+    color: #6c278b;
+
+}
+
+#Locations {
+    font-family: 'Abril Fatface', cursive;
+    color: #6c278b;
+    text-shadow: 2px 2px hsl(318, 100%, 50%);
+}
+
+#fishies {
+    width: 200px;
+    height: 200px;
+    float: right;
+    margin: 0px 10px 10px 10px;
+    padding: 10px;
+    margin: 30px;
+}
+
+a:link {
+    text-decoration: none;
+    text-shadow: 2px 2px hsl(318, 100%, 50%);
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #e29cdc;
+}
+
+#History {
+ 
+    color: #6c278b;
+}
