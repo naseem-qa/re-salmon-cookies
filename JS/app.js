@@ -2,9 +2,8 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 
+$('#table').append('<table></table>')
 
-
-// var footerRow;
 function ShopBranch(location, min, max, avg) {
     this.location = location;
     this.min = min;
@@ -28,124 +27,75 @@ ShopBranch.prototype.randomNumberOfCustomersPerHour = function () {
 }
 
 
-$('#table').append(table);
 
-var table = $('<table>');
-table.append('<td>' + '' + '</td>');
 
-for (var i = 0; i < hours.length; i++) {
-    table.append('<td>' + hours[i] + '</td>');
+
+ShopBranch.prototype.row = function (table) {
+
+
+    $('table').append(`<tr class="${this.location}"><td>${this.location}</td></tr>`)
+
+    for (var i = 0; i < hours.length; i++) {
+        $(`.${this.location}`).append(`<td>${this.hourlySales[i]}</td>`)
+
+    }
+
+    $(`.${this.location}`).append(`<td>${this.dailySales}</td>`)
 }
-table.append('<td>' + 'Daily Location Total' + '</td>');
-
-
-$('#table').append(table);
-
-// $('#table').append(table);
-// var table = $('<table></table>')
-// let tRow=$('<tr></tr>');
-// let tHeader=$('<th><th>');
-// let tData=$('<td><td>');
-
-
-// function addElement(tagName, container, text) {
-//     var element = document.createElement(tagName);
-//     container.appendChild(element);
-
-//     if (text) {
-//         element.textContent = text;
-//     }
-
-//     return element;
-// }
-
-
-// ShopBranch.prototype.row = function (table) {
-
-//     var newLocationRow = addElement('tr', table);
-
-//     addElement('td', newLocationRow, this.location);
-
-//     for (var i = 0; i < this.hourlySales.length; i++) {
-//         var currentHourlySales = this.hourlySales[i];
-//         addElement('td', newLocationRow, currentHourlySales);
-//     }
-
-//     addElement('td', newLocationRow, this.dailySale);
-
-
-// }
-// unction renderHeaderRow(table) {
-//     var tr = document.createElement('tr');
-//     table.appendChild(tr);
-
-//     var th = document.createElement('th');
-//     tr.appendChild(th);
-//     tRow.append(tData)
-
-//     for (var i = 0; i < hours.length; i++) {
-
-//         th = document.createElement('th');
-//         tr.appendChild(th);
-//         th.textContent = hours[i];
-//     }
-//     th = document.createElement('th');
-//     tr.appendChild(th);
-//     th.textContent = 'Daily Location Total';
-// }
-// renderHeaderRow(table);
-
-// ShopBranch.prototype.render = function (table) {
-
-//     var tr = document.createElement('tr');
-//     table.appendChild(tr);
-
-//     var td = document.createElement('td');
-//     tr.appendChild(td);
-//     td.textContent = this.location;
-
-//     for (var i = 0; i < hours.length; i++) {
-//         td = document.createElement('td');
-//         tr.appendChild(td);
-//         td.textContent = this.hourlySales[i];
-//     }
-//    var td = document.createElement('td');
-//     tr.appendChild(td);
-//     td.textContent = this.dailySales;
-// }
 
 
 
-// function renderFooterRow(table) {
-//     var tr = document.createElement('tr');
-//     footerRow = tr;
 
-//     table.appendChild(tr);
+function renderHeaderRow() {
 
-//     var td = document.createElement('td');
-//     tr.appendChild(td);
-//     td.textContent = 'Total';
-//     var totalTotal = 0;
+    $('table').append(`<tr class = "head"><th>***</th></tr>`)
 
-//     for (var k = 0; k < hours.length; k++) {
-//         var td = document.createElement('td');
-//         tr.appendChild(td);
+    for (var i = 0; i < hours.length; i++) {
+        $('.head').append(`<th>${hours[i]}</th>`)
 
-//         var sum = 0;
+    }
+    $('.head').append(`<th>Daily Location Total</th>`)
+}
 
-//         for (var j = 0; j < shops.length; j++) {
-//             var shoptotal = shops[j];
-//             sum += shoptotal.hourlySales[k];
+renderHeaderRow()
 
-//         }
-//         td.textContent = sum;
-//         totalTotal += sum;
-//     }
+ShopBranch.prototype.render = function (table) {
 
-//     td = document.createElement('td');
-//     tr.appendChild(td);
-//     td.textContent = totalTotal;
-// };
+    $('table').append(`<tr class="${this.location}"><td>${this.location}</td></tr>`)
+
+    for (var i = 0; i < hours.length; i++) {
+        $(`.${this.location}`).append(`<td>${this.hourlySales[i]}</td>`)
+
+    }
+
+    $(`.${this.location}`).append(`<td>${this.dailySales}</td>`)
+}
+
+
+
+
+
+function renderFooterRow(table) {
+    $(`table`).append(`<tr class=footer><td>Total </td></tr>`)
+    var totalTotal = 0;
+
+    for (var k = 0; k < hours.length; k++) {
+        // var td = document.createElement('td');
+        // tr.appendChild(td);
+
+        var sum = 0;
+
+        for (var j = 0; j < shops.length; j++) {
+            var shoptotal = shops[j];
+            sum += shoptotal.hourlySales[k];
+
+        }
+        $(`.footer`).append(`<td>${sum}</td>`)
+        totalTotal += sum;
+    }
+    $(`.footer`).append(`<td>${totalTotal}</td>`)
+
+};
 
 
 
@@ -164,30 +114,33 @@ shops.push(new ShopBranch('Lima', 2, 16, 4.6));
 
 for (var i = 0; i < shops.length; i++) {
     var shop = shops[i];
-    shop.render(table);
+    shop.render();
 }
 
-// renderFooterRow(table);
+renderFooterRow();
 
+let seen = {}
 ////////////////////////////////
-// function submitHandler(event) {
-//     event.preventDefault();
+$('#add').submit(function (event) {
+    event.preventDefault();
 
-//     var location = event.target.location.value;
-//     var min = parseInt(event.target.min.value);
-//     var max = parseInt(event.target.max.value);
-//     var avg = parseFloat(event.target.avg.value);
+    let location = event.target.city.value;
+    let min = parseInt(event.target.min.value);
+    let max = parseInt(event.target.max.value);
+    let avg = parseFloat(event.target.averagenew.value);
 
-//     var newShop = new ShopBranch(location, min, max, avg);
+    let newShop = new ShopBranch(location, min, max, avg);
+    shops.push(newShop);
 
-//     shops.push(newShop);
 
-//     table.removeChild(footerRow);
+    if (!seen[location]) {
+        seen[location] = true
+        $(`.footer`).remove();
+        newShop.row();
+        renderFooterRow();
+    } else{
+        alert('Try a city does not exist')
+    }
 
-//     newShop.row(table);
 
-//     renderFooterRow(table);
-
-// };
-// var form = document.getElementById('add');
-// form.addEventListener('submit', submitHandler);
+});
